@@ -3,9 +3,9 @@
     "build" : {"dockerfile": "Dockerfile"},
     "settings": 
         {
-            "python.pythonPath": "/usr/local/bin/python",
-            "python.defaultInterpreterPath": "/usr/local/bin/python",
-            "terminal.integrated.shell.linux": "/bin/bash"
+            "python.pythonPath": "/usr/local/bin/python3",
+            "python.defaultInterpreterPath": "/usr/local/bin/python3",
+            "terminal.integrated.shell.linux": "usr/bin/bash"
         },
     "customizations": 
         {
@@ -20,4 +20,4 @@
     "forwardPorts": [8888],
     "postCreateCommand": "echo 'Ready!'",
     "remoteUser": "vscode"
-}
+} --
