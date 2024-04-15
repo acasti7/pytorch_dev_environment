@@ -9,24 +9,24 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Optional: if you need to run as non-root user
-RUN useradd -m vscode
+RUN useradd -ms /bin/bash vscode
 USER vscode
+WORKDIR /home/vscode
+#RUN chown -R vscode:vscode /home
 
 # Copy the current directory contents into the container at /app
-RUN mkdir /home/vscode/src
-COPY ./src /home/vscode/src
-
-WORKDIR /home/vscode
+RUN mkdir /home/vscode/app
+COPY ./src /home/vscode/app
 
 # Install any needed packages specified in requirements.txt
 RUN python -m pip install --upgrade pip
 # RUN python -m pip install --no-cache-dir ipykernel requests
-RUN pip install -r vscode/src/requirements.txt
-
-# Set up environment variables
-ENV PYTHONUNBUFFERED=1
-
-# Make port 8888 available to the world outside this container
-EXPOSE 8888
+RUN pip install -r /home/vscode/app/requirements.txt
