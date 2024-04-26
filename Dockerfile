@@ -1,5 +1,5 @@
 # devcontainer build --workspace-folder . --image-name torch_dev_image
-# docker run -d -it --name torch_dev_container -v "$(pwd)"/src:/src -w /src torch_dev_image
+# docker run -d -it --name torch_dev_container -v "$(pwd)"/src:/home/vscode/src -w /home/vscode/src torch_dev_image
 # Use an official Python runtime as a parent image
 FROM intel/intel-optimized-pytorch
 

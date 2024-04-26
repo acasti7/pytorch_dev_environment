@@ -20,4 +20,4 @@
     "forwardPorts": [8888],
     "postCreateCommand": "echo 'Ready!'",
     "remoteUser": "vscode"
-} --
+} 
